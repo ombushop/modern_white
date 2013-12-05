@@ -1,0 +1,12 @@
+<h1 id="head_logo">
+  <a href="/" title="Home">
+    {% if shop.has_logo? %}
+      <span>{{ shop.name }}</span>
+      <img src="{{ shop.shop_logo | logo_size: 'header' }}" alt="{{ shop.name }}">
+    {% else %}
+      <div class="generated_logo">
+        <span>{{ shop.name | capitalize }}</span>
+      </div>
+    {% endif %}
+  </a>
+</h1>
