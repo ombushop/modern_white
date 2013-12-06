@@ -161,7 +161,7 @@
           <nav>
             <ul id="navigation-bar"> 
               {% if shop.homepage %}
-              <li><a href="/products">Productos</a></li>
+                <li><a href="/products">Productos</a></li>
               {% endif %}
               {% for page in pages %}
               <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
