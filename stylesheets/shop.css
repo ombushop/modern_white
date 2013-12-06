@@ -25,35 +25,35 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-  display: block;
+	display: block;
 }
 body {
-  line-height: 1;
+	line-height: 1;
 }
 ol, ul {
-  list-style: none;
+	list-style: none;
 }
 blockquote, q {
-  quotes: none;
+	quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
-  content: none;
+	content: '';
+	content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 /* End Eric Meyer's reset. */
@@ -246,7 +246,12 @@ div.breadcrumbs li {
 
 /* ========================================= */
 /* Product index */
-
+.no-products {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
 .product-listing {
   margin: 0 auto;
 }
@@ -356,7 +361,7 @@ div.breadcrumbs li {
 
 footer {
   overflow: auto;
-  padding: 20px 0;
+  padding: 40px 0 20px 0;
 }
 .store_footer {
   float: none;
@@ -365,13 +370,14 @@ footer {
   color: #787878;
   max-width: 800px;
   margin: 0 auto;
+  margin-bottom: 30px;
   text-align: center;
 }
 #ombu-footer {
   float: none !important;
   letter-spacing: 0 !important;
   margin: 0 auto !important;
-  margin-bottom: 70px !important;
+  margin-bottom: 40px !important;
 }
 
 /* ========================================= */
@@ -384,10 +390,11 @@ body.template-page #content {
 body.template-page #content {
   font-size: 18px;
   line-height: 1.4em;
+  margin-bottom: 3em;
 }
 body.template-page #content h2 {
   font-size: 2em;
-  margin-top: 1em;
+  margin-top: 2em;
   margin-bottom: .9em;
   line-height: 1.1em;
 }
