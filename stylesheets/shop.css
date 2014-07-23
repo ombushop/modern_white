@@ -177,7 +177,7 @@ header {
 
 /* Categories */
 #taxonomies {
-  position: absolute;
+  position: absolute; /* ojo con esto */
   bottom: 1px;
   left: 0;
   z-index: 10000;
