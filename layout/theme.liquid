@@ -179,29 +179,33 @@
             </p>
           </div><!-- end #cart-bar -->
 
-          <nav>
-            <ul id="navigation-bar">
-              {% if shop.homepage %}
-                <li><a href="/products">Productos</a></li>
-              {% endif %}
-              {% for page in pages %}
-              <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </nav>
+          <div id="sub-header">
+            
+            <nav>
+              <ul id="navigation-bar">
+                {% if shop.homepage %}
+                  <li><a href="/products">Productos</a></li>
+                {% endif %}
+                {% for page in pages %}
+                <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
 
-          <div id="search_bar">
-            <form accept-charset="UTF-8" action="/products" method="get">
-              <div style="margin:0;padding:0;display:inline">
-                <input name="utf8" type="hidden" value="✓" />
-              </div>
-              <label for="keywords">Buscar</label>
-              <input id="keywords" name="keywords" type="text" value="{{ keywords }}" />
-              <input type="submit" value="Buscar" id="search-button" />
-            </form>
+            <div id="search_bar">
+              <form accept-charset="UTF-8" action="/products" method="get">
+                <div style="margin:0;padding:0;display:inline">
+                  <input name="utf8" type="hidden" value="✓" />
+                </div>
+                <label for="keywords">Buscar</label>
+                <input id="keywords" name="keywords" type="text" value="{{ keywords }}" />
+                <input type="submit" value="Buscar" id="search-button" />
+              </form>
+            </div>
+
+            {% include 'sidebar' %}
+
           </div>
-
-          {% include 'sidebar' %}
 
         </header>
 

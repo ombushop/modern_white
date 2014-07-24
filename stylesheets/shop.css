@@ -107,10 +107,14 @@ a:active {
 header {
   padding-top: 15px;
   position: relative;
+  background: #fff;
+  margin-left: -20px;
+  margin-right: -20px;
   margin-bottom: 40px;
 }
 #head_logo {
   text-align: center;
+  min-height: 100px;
 }
 #head_logo a, #head_logo a:hover {
   background: transparent;
@@ -122,9 +126,12 @@ header {
   display: block;
   font-size: 2.5em;
   text-transform: uppercase;
-  height: 3em;
   margin-top: 1em;
   font-weight: bold;
+  line-height: 1;
+}
+#sub-header {
+  background: #ddd;
 }
 #navigation-bar {
   text-align: center;
@@ -159,8 +166,8 @@ header {
 /* Search bar */
 #search_bar {
   position: absolute;
-  bottom: -2px;
-  right: 0;
+  bottom: 18px;
+  right: 20px;
   font-size: .9em;
 }
 #search_bar label {
@@ -172,11 +179,11 @@ header {
 }
 #search_bar form input#keywords {
   border: 0;
-  background: #fbfbfb;
+  background: #f1f1f1;
   padding: 5px 16px;
 }
 #search_bar form input#keywords:hover, #search_bar form input#keywords:focus {
-  background: #fff;
+  background: #fbfbfb;
   color: #000;
 }
 #search_bar form input#search-button {
@@ -185,9 +192,9 @@ header {
 
 /* Categories */
 #taxonomies {
-  position: absolute; /* ojo con esto */
-  bottom: 1px;
-  left: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
   z-index: 10000;
 }
 #taxonomies ul.navigation-list {
@@ -370,6 +377,9 @@ div.breadcrumbs li {
 footer {
   overflow: auto;
   padding: 40px 0 20px 0;
+  background: #fff;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 .store_footer {
   float: none;
@@ -417,7 +427,7 @@ body.template-page #content p {
   background: #444;
   color: #fff;
   padding: 20px;
-  margin: 0 10%;
+  margin: 0 10% 40px;
 }
 .product-content #main-image {
   float: left;
@@ -430,6 +440,9 @@ body.template-page #content p {
   float: none;
 }
 #cart-form {
+  margin-left: 450px;
+}
+#product-thumbnails {
   margin-left: 450px;
 }
 #cart-form h1 {
@@ -581,8 +594,8 @@ button.buy-button:active:after {
   #taxonomies {
     position: static;
     text-align: center;
-    border-top: #444 1px solid;
-    border-bottom: #444 1px solid;
+    border-top: #cfcfcf 1px solid;
+    border-bottom: #cfcfcf 1px solid;
     margin: 1em 0;
   }
   #taxonomies ul.navigation-list > li > ul {
