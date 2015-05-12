@@ -26,7 +26,7 @@
       <script src="http://www.ombushop.com/assets/themes/modern_white/javascripts/html5shiv.js"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    
+
     <!-- Ombu Shop - Default CSS -->
     <link href='https://secure.ombushop.com/assets/shops/default.css' rel='stylesheet' type='text/css' />
 
@@ -72,8 +72,8 @@
             isAnimated: true,
             isResizable: true,
             isFitWidth: true,
-            columnWidth: 270,
-            gutter: 20,
+            columnWidth: 250,
+            gutter: 15,
             itemSelector: '.product'
           });
 
@@ -172,7 +172,29 @@
       <div id="page-container">
 
         <header>
+          <div id="header-content">
           {% include 'logo' %}
+          <div id="search_bar">
+            <form accept-charset="UTF-8" action="/products" method="get">
+              <div style="margin:0;padding:0;display:inline">
+                <input name="utf8" type="hidden" value="✓" />
+              </div>
+              <label for="keywords">Buscar</label>
+              <input id="keywords" name="keywords" type="text" value="{{ keywords }}" />
+              <input type="submit" value="Buscar" id="search-button" />
+            </form>
+          </div>
+          <div id="contact-info">
+            <ul>
+              <li class="facebook" title="Facebook"><a href="#" target="_blank"></a></li>
+              <li class="pinterest" title="Pinterest"><a href="#" target="_blank"></a></li>
+              <li class="twitter" title="Twitter"><a href="#" target="_blank"></a></li>
+              <li class="instagram" title="Instagram"><a href="#" target="_blank"></a></li>
+              <li class="google-plus" title="Google Plus"><a href="#" target="_blank"></a></li>
+              <li class="youtube" title="Youtube"><a href="#" target="_blank"></a></li>
+              <li class="phone">678-678-6789</li>
+            </ul>
+          </div>
           <div id="cart-bar">
             <p class="cart-indicator">
               {% if current_order.item_count == 0 %}
@@ -184,8 +206,7 @@
           </div><!-- end #cart-bar -->
 
           <div id="sub-header">
-
-            <nav>
+            <nav id="nav-container">
               <ul id="navigation-bar">
                 {% if shop.homepage %}
                   <li><a href="/products">Productos</a></li>
@@ -195,31 +216,41 @@
                 {% endfor %}
               </ul>
             </nav>
-
-            <div id="search_bar">
-              <form accept-charset="UTF-8" action="/products" method="get">
-                <div style="margin:0;padding:0;display:inline">
-                  <input name="utf8" type="hidden" value="✓" />
-                </div>
-                <label for="keywords">Buscar</label>
-                <input id="keywords" name="keywords" type="text" value="{{ keywords }}" />
-                <input type="submit" value="Buscar" id="search-button" />
-              </form>
-            </div>
-
-            {% include 'sidebar' %}
-
           </div>
-
+        </div>
         </header>
 
         {{ content_for_layout }}
 
         <footer>
-          <div class="store_footer">
-            {{ shop.footer }}
+          <div class="footer-container">
+            <div class="store_footer">
+              <div id="contact-info">
+                <ul>
+                  <li class="facebook" title="Facebook"><a href="#" target="_blank"></a></li>
+                  <li class="pinterest" title="Pinterest"><a href="#" target="_blank"></a></li>
+                  <li class="twitter" title="Twitter"><a href="#" target="_blank"></a></li>
+                  <li class="instagram" title="Instagram"><a href="#" target="_blank"></a></li>
+                  <li class="google-plus" title="Google Plus"><a href="#" target="_blank"></a></li>
+                  <li class="youtube" title="Youtube"><a href="#" target="_blank"></a></li>
+                  <li class="phone">678-678-6789</li>
+                </ul>
+              </div>
+              <p>{{ shop.footer }}</p>
+            </div>
+            <nav>
+              <h1>Navegación</h1>
+              <ul>
+                {% if shop.homepage %}
+                  <li><a href="/products">Productos</a></li>
+                {% endif %}
+                {% for page in pages %}
+                <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+            {{ content_for_footer }}
           </div>
-          {{ content_for_footer }}
         </footer>
 
       </div> <!-- end #page-container -->
