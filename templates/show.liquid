@@ -67,12 +67,15 @@ File: show.liquid
 
   <div id="cart-form">
     <h1>{{ product.name }}</h1>
+    <p class="prices">
+      <span class="price selling">{{ product.price_with_currency }}</span>
+    </p>
+    <div id="product-description">
+      {{ product.formatted_description }}
+    </div>
     <form accept-charset="UTF-8" action="/orders/populate" method="post">
       <input name="utf8" type="hidden" value="✓" />
 
-      <p class="prices">
-        <span class="price selling">{{ product.price_with_currency }}</span>
-      </p>
 
       <input id="order_product_id" name="order[product_id]" type="hidden" value="{{ product.id }}" />
 
@@ -128,9 +131,7 @@ File: show.liquid
 
   </div><!-- end #cart-form -->
 
-  <div id="product-description">
-    {{ product.formatted_description }}
-  </div>
+
 
 
   <div id="taxon-crumbs">
