@@ -67,9 +67,7 @@ table {
   -moz-box-sizing:    border-box;
   box-sizing:         border-box;
 }
-html {
-  background: #eee;
-}
+
 body {
   background: #f9f9f9;
   font-family: 'Roboto', 'Helvetica', Arial, sans-serif;
@@ -116,6 +114,7 @@ header #header-content{
   max-width:960px;
   margin:auto;
   position:relative;
+  margin-top: 25px;
 }
 #head_logo {
   text-align: left;
@@ -225,7 +224,7 @@ header #header-content{
 }
 #cart-bar a {
   display: block;
-  padding: 10px 20px;
+  padding: 5px 20px;
   background: #eee;
 }
 #cart-bar a:hover {
@@ -303,6 +302,7 @@ header #header-content{
   cursor: pointer;
   width: 160px;
   font-size: 1.1em;
+  background-color:#fff;
 }
 #taxonomies > ul.navigation-list > li > h5:after{
   content: '';
@@ -342,7 +342,7 @@ li.root > a{
 #taxonomies h1{
   text-transform:uppercase;
   padding:8px;
-  border-top:1px solid #EEE;
+  border-top:2px solid #EEE;
   border-bottom: 1px solid #EEE;
   font-weight: 500;
   font-size: 15px;
@@ -382,14 +382,21 @@ div.breadcrumbs li {
   padding: 100px 0;
 }
 .product-listing {
-  margin: 0 0 0 auto;
+  margin: 0 0 0 180px;
   min-width: 780px;
   min-height: 300px;
 }
-.product-listing:before {
-  content: " ";
-  display: table;
+
+ul.product-listing:before {
+  content: '';
+  width: 2px;
+  background: #EEE;
+  display: block;
+  position: absolute;
+  height: 100%;
+  left: -10px;
 }
+
 .product-listing:after {
   clear: both;
 }
@@ -398,49 +405,41 @@ div.breadcrumbs li {
   margin-bottom: 15px;
   margin-right: 15px;
   float: left;
+  border:5px solid #fff;
+  background-color: #fff;
 }
-.product-listing .product a {
-  display: block;
-}
+
 .product-listing .product img {
   width: 100%;
 }
 .product-listing .product .product-info {
-  color: #fff;
-  background: #444444;
-  background: rgba(68, 68, 68, .98);
-  padding: 20px;
+  color: #000;
+  background: #ffffff;
+  padding: 10px;
   padding-top: 10px;
-  padding-bottom: 50px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  -webkit-transition: 200ms;
-  -moz-transition:    200ms;
-  -ms-transition:     200ms;
-  transition:         200ms;
-  -webkit-transition-property: opacity, padding-top;
-  -moz-transition-property:    opacity, padding-top;
-  -ms-transition-property:     opacity, padding-top;
-  transition-property:         opacity, padding-top;
-  opacity: 0;
+  padding-bottom: 32px;
+  min-height: 105px;
 }
-.product-listing .product a:hover .product-info, .product-listing .product:hover .product-info {
-  padding-top: 20px;
-  opacity: 1;
+.product-info .product-price{
+  color: #999;
+  font-weight: 400;
+}
+.product-listing .product a:hover img {
+  opacity:0.8;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
 }
 .product-listing .product .social-container {
   position: absolute;
-  bottom: 10px;
-  left: 20px;
-  right: 20px;
+  bottom: 0px;
   width: 100%;
-  display: none;
+  width: 94%;
+  border-top: 1px solid #eee;
+  margin: 0 3%;
+  padding-top: 8px;
 }
 .product-listing .product:hover .social-container {
-  display: block;
 }
 .product-listing .product .product-name {
   font-weight: 500;
@@ -494,31 +493,35 @@ div.breadcrumbs li {
 /* Social container */
 
 .social-container div.fb-like {
-  margin-right: 15px;
+  margin-right: 10px;
+  top: -4px;
 }
+
 
 /* ========================================= */
 /* Footer */
 
 footer {
   overflow: auto;
-  padding: 40px 0 20px 0;
+  padding: 30px 0 20px 0;
   background: #fff;
   margin-left: -20px;
   margin-right: -20px;
   border-top: 1px solid #000;
+  padding-bottom: 0px;
 }
 .footer-container{
   max-width:960px;
   margin:auto;
+  overflow: hidden;
 }
 .footer-container nav{
-  max-width: 36%;
+  max-width: 33%;
   float: left;
   padding: 0 2%;
   border-right: 1px solid #000000;
   border-left: 1px solid #000000;
-  min-height: 120px;
+  min-height: 100px;
   width: 36%;
 }
 .footer-container nav h1{
@@ -532,7 +535,6 @@ footer {
   font-weight: 400;
   letter-spacing: 0.1em;
   color: #000;
-  padding-left: 5px;
 }
 .store_footer {
   float: left;
@@ -541,14 +543,34 @@ footer {
   color: #787878;
   max-width: 800px;
   margin: 0 auto;
-  margin-bottom: 30px;
   text-align: left;
-  max-width: 36%;
+  max-width: 33%;
   padding: 0 2%;
-  min-height: 120px;
 }
-footer .store_footer #contact-info{
+.store_footer #head_logo{
+  min-height: initial;
+}
+.store_footer #head_logo a{
+  display: block;
+}
+.store_footer #head_logo a img{
+  max-width: 120px;
+  width: 100%;
+}
+.store_footer #head_logo div.generated_logo span{
+  display: block;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-weight: 300;
+  line-height: 1;
+}
+footer .footer-container #contact-info{
   position:relative;
+  width: 33%;
+  float: left;
+  padding: 0 2%;
 }
 .footer-container #ombu-footer {
   float: left !important;
@@ -559,7 +581,51 @@ footer .store_footer #contact-info{
   max-width:20%;
   padding: 0 2%;
 }
-
+#ombushop-footer{
+  background-color: #353535;
+  overflow: auto;
+  clear: both;
+  margin-top: 25px;
+  padding: 10px;
+  font-size: 12px;
+  text-align:center;
+}
+#ombushop-footer a{
+  color:#eee;
+  text-transform:uppercase;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+#ombushop-footer a:hover{
+  background:none;
+  color:#fff;
+}
+#ombushop-footer ul{
+  text-align:center;
+  width:100%;
+  padding: 10px 0;
+}
+#ombushop-footer ul li{
+  display:inline-block;
+  margin-right: 10px;
+}
+#ombushop-footer ul li a:before{
+  content: '|';
+  color: #eee;
+  margin-right: 10px;
+}
+#ombushop-footer ul > li:nth-child(1) a:before{
+  display:none;
+}
+#ombushop-footer .footer-logo{
+  display:block;
+  padding-top: 10px;
+}
+#ombushop-footer p{
+  color:#eee;
+  font-size: 0.8em;
+  letter-spacing: 0;
+}
 /* ========================================= */
 /* Page content */
 
@@ -588,17 +654,19 @@ body.template-page #content p {
 #content.index{
   max-width: 960px;
   margin: auto;
+  min-height: 600px;
 }
 .product-content {
-  background: #444;
-  color: #fff;
+  background: #fff;
+  color: #000000;
   padding: 20px;
-  margin: 0 10% 40px;
+  margin: 0 auto 5% auto;
+  max-width:960px;
 }
 .product-content #main-image {
   float: left;
   margin-right: 20px;
-  max-width: 430px;
+  width: 80%;
 }
 .product-content #main-image img {
   width: 100%;
@@ -606,17 +674,16 @@ body.template-page #content p {
   float: none;
 }
 #cart-form {
-  margin-left: 450px;
+  float: left;
+  width: 45%;
 }
-#product-thumbnails {
-  margin-left: 450px;
-}
+
 #cart-form h1 {
-  font-weight: 700;
+  font-weight: 300;
   font-size: 2em;
   line-height: 1.1;
   text-transform: uppercase;
-  margin-top: .1em;
+  letter-spacing: 0;
   margin-top: .1em;
   margin-bottom: .5em;
 }
@@ -637,9 +704,7 @@ button.buy-button {
   margin: 20px 0;
   padding: .8em 1.2em;
 }
-button.buy-button:after {
-  content: " :-)";
-}
+
 button.buy-button:hover {
   background: #fd0;
   color: #222;
@@ -652,11 +717,11 @@ button.buy-button:active:after {
   content: " ;-)";
 }
 #cart-form .payment_images {
-  background: #ddd;
   color: #444;
-  padding: 10px;
+  padding: 10px 0;
   width: 100%;
-  border: #ccc 4px solid;
+  border-top: 1px solid #eee;
+  font-weight: 400;
 }
 #cart-form .payment_images span {
   color: inherit;
@@ -668,30 +733,33 @@ button.buy-button:active:after {
 #cart-form .in-product-social-container {
   float: left;
 }
-#product-description {
-  margin-left: 450px;
+#cart-form .social-container div.fb-like{
+  top: 0;
 }
 #product-description p {
   margin: .5em 0;
 }
 #taxon-crumbs {
   text-align: left;
-  margin-left: 450px;
   clear: both;
 }
 #taxon-crumbs a {
-  background: #ddd;
+  background: #000;
   border: 0;
   display: inline-block;
-  color: #333;
+  color: #fff;
   -webkit-text-shadow: none;
   -moz-text-shadow: none;
   -ms-text-shadow: none;
   -o-text-shadow: none;
   text-shadow: none;
-  border-radius: 3px;
   margin: 20px 0 0 0;
-  padding: .8em 1.2em;
+  padding: .5em 1.2em;
+  letter-spacing: 0.5px;
+}
+#product-images{
+  width: 55%;
+  float: left;
 }
 /* ========================================= */
 /* Contanct Page */
@@ -719,7 +787,6 @@ button.buy-button:active:after {
   opacity:0.6;
 }
 #contact-form #subject-input, #contact-form #email-input{
-  float:left;
   width:49%;
   margin-bottom: 1%;
 }
@@ -733,11 +800,12 @@ button.buy-button:active:after {
   font-size: 0.9em;
 }
 #contact-form textarea{
-  width:100%;
+  width:49%;
   padding:1%;
   font-size: 0.9em;
   border: 1px solid #000;
   margin-bottom: 1%;
+  display:block;
 }
 /* ========================================= */
 /* MEDIA QUERIES */
@@ -747,14 +815,8 @@ button.buy-button:active:after {
   header #header-content{
    margin: 0 20px;
   }
-  #page-container .product-content {
-    margin: 0 5%;
-  }
-  #cart-form h1 {
-    font-size: 1.5em;
-  }
-  .payment_images {
-    display: none;
+  #content.index{
+  max-width:768px;
   }
 }
 
@@ -763,17 +825,32 @@ button.buy-button:active:after {
   #search_bar {
     display: none;
   }
+  #product-images{
+    width:100%;
+  }
   .product-content {
-    margin: 0 auto;
-    max-width: 470px;
+    margin: 0 auto 20px auto;
+    max-width: 600px;
+  }
+  #thumbnails{
+    margin-top:20px;
+  }
+  #product-thumbnails li{
+    float:left;
+    margin-right:10px;
+  }
+  .payment_images{
+    display:none;
   }
   .product-content #main-image {
     float: none;
     margin-right: 0;
+    width: 100%;
   }
   #cart-form {
     margin-top: 2em;
     margin-left: 0;
+    width:100%;
   }
   #product-description {
     margin-left: 0;
@@ -784,15 +861,21 @@ button.buy-button:active:after {
   #main-image {
     width: 100%;
   }
+  ul.product-listing:before{
+    display:none;
+  }
   footer{
     padding-left:20px;
     padding-right:20px;
+    padding-bottom: 0;
   }
-  .store_footer, .footer-container nav, .footer-container #ombu-footer{
+  .store_footer, .footer-container nav, .footer-container #ombu-footer, footer .footer-container #contact-info{
     width: 100%;
     float: none;
     max-width: none;
     min-height: initial;
+    display: inline-block;
+    padding-top: 12px;
   }
   .footer-container #ombu-footer{
     padding-top: 20px;
@@ -802,6 +885,10 @@ button.buy-button:active:after {
     border-left:0;
     border-right:0;
     padding-bottom: 20px;
+  }
+  #ombushop-footer{
+    margin-left: -20px;
+    margin-right: -20px;
   }
   #navigation-bar{
     text-align:center;
@@ -848,9 +935,6 @@ button.buy-button:active:after {
 
 /* 600px and below */
 @media screen and (max-width: 600px) {
-  .product-content {
-    margin: 0 auto;
-  }
   #main-image img {
     width: 100%;
   }
