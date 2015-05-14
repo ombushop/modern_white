@@ -79,8 +79,8 @@
 
         });
         // categories menu
-        $('#taxonomies ul.navigation-list > li > ul').hide();
-        var categories_opened = false;
+        $('#taxonomies ul.navigation-list > li > ul').show();
+        var categories_opened = true;
         $('#taxonomies > ul.navigation-list > li > h5').click(function(e){
           if(categories_opened == true){
             // close categories
@@ -225,16 +225,8 @@
         <footer>
           <div class="footer-container">
             <div class="store_footer">
-              <div id="contact-info">
-                <ul>
-                  <li class="facebook" title="Facebook"><a href="#" target="_blank"></a></li>
-                  <li class="pinterest" title="Pinterest"><a href="#" target="_blank"></a></li>
-                  <li class="twitter" title="Twitter"><a href="#" target="_blank"></a></li>
-                  <li class="instagram" title="Instagram"><a href="#" target="_blank"></a></li>
-                  <li class="google-plus" title="Google Plus"><a href="#" target="_blank"></a></li>
-                  <li class="youtube" title="Youtube"><a href="#" target="_blank"></a></li>
-                  <li class="phone">678-678-6789</li>
-                </ul>
+              <div id="logo">
+                {% include 'logo' %}
               </div>
               <p>{{ shop.footer }}</p>
             </div>
@@ -248,8 +240,30 @@
                 <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
                 {% endfor %}
               </ul>
-            </nav>
-            {{ content_for_footer }}
+              </nav>
+              <div id="contact-info">
+                <ul>
+                  <li class="facebook" title="Facebook"><a href="#" target="_blank"></a></li>
+                  <li class="pinterest" title="Pinterest"><a href="#" target="_blank"></a></li>
+                  <li class="twitter" title="Twitter"><a href="#" target="_blank"></a></li>
+                  <li class="instagram" title="Instagram"><a href="#" target="_blank"></a></li>
+                  <li class="google-plus" title="Google Plus"><a href="#" target="_blank"></a></li>
+                  <li class="youtube" title="Youtube"><a href="#" target="_blank"></a></li>
+                  <li class="phone">678-678-6789</li>
+                </ul>
+              </div>
+          </div>
+          <div id="ombushop-footer">
+              <div class="footer-container">
+                <a href="http://www.ombushop.com/?utm_source=shop&utm_campaign=modern_white" target="_blank" title="OmbuShop. Tu tienda online" class="footer-logo"><img src="/themes/modern_white/images/logo-footer.png"></a>
+                <ul>
+                  <li><a href="http://www.ombushop.com/ventajas-de-tener-tu-tienda-online" target="_blank" title="Ventajas para tu tienda online"> Ventajas </a></li>
+                  <li><a href="http://www.ombushop.com/ventas-por-mayor" target="_blank" title="Ventas por Mayor"> Ventas por mayor </a></li>
+                  <li><a href="http://www.ombushop.com/partners" target="_blank" title="Partners. Sumate al programa" >Partners</a></li>
+                  <li><a href="http://www.ombushop.com/blog" target="_blank" title="OmbuShop Blog" >Blog</a></li>
+                </ul>
+                <p>OmbuShop. Tu Tienda Online. Todos los derechos reservados.</p>
+              </div>
           </div>
         </footer>
 
