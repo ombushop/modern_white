@@ -596,6 +596,10 @@ footer .footer-container #contact-info{
   font-weight: 400;
   font-size: 0.9em;
 }
+#ombushop-footer a strong{
+  font-weight: bold;
+  color: #2ba47d;
+}
 #ombushop-footer a:hover{
   background:none;
   color:#fff;
