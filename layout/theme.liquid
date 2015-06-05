@@ -33,8 +33,9 @@
 
     <!-- Ombu Shop - Theme: Modern White - File: theme.liquid -->
 
-    <!-- Google typography -->
+    <!-- Google typography and Fontawesome -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <link href='/themes/modern_white/stylesheets/reset.css' rel='stylesheet' type='text/css' />
     <link href='/themes/modern_white/stylesheets/basic.css' rel='stylesheet' type='text/css' />
@@ -143,8 +144,6 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- end facebook code -->
 
-    <div id="all">
-
       <!-- admin bar -->
       {% if current_user %}
         {% if current_user.is_admin? %}
@@ -187,13 +186,13 @@
           </div>
           <div id="contact-info">
             <ul>
-              <li class="facebook" title="Facebook"><a href="#" target="_blank"></a></li>
-              <li class="pinterest" title="Pinterest"><a href="#" target="_blank"></a></li>
-              <li class="twitter" title="Twitter"><a href="#" target="_blank"></a></li>
-              <li class="instagram" title="Instagram"><a href="#" target="_blank"></a></li>
-              <li class="google-plus" title="Google Plus"><a href="#" target="_blank"></a></li>
-              <li class="youtube" title="Youtube"><a href="#" target="_blank"></a></li>
-              <li class="phone">678-678-6789</li>
+              <li class="facebook" title="Facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li class="pinterest" title="Pinterest"><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+              <li class="twitter" title="Twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li class="instagram" title="Instagram"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li class="google-plus" title="Google Plus"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+              <li class="youtube" title="Youtube"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+              <li class="phone"><i class="fa fa-phone"></i> 678-678-6789</li>
             </ul>
           </div>
           <div id="cart-bar">
@@ -222,6 +221,7 @@
         </header>
 
         {{ content_for_layout }}
+<<<<<<< HEAD
 
         <footer>
           <div class="footer-container">
@@ -261,8 +261,47 @@
           </div>
         </footer>
 
+=======
+        <div class="push"></div>
+>>>>>>> Sticky footer and fixed pin it button size
       </div> <!-- end #page-container -->
-    </div> <!-- end #all -->
+      <footer>
+        <div class="footer-container">
+          <div class="store_footer">
+          <div id="logo">
+            {% include 'logo' %}
+          </div>
+          <p>{{ shop.footer }}</p>
+        </div>
+        <nav>
+          <h1>Navegación</h1>
+          <ul>
+            {% if shop.homepage %}
+              <li><a href="/products">Productos</a></li>
+            {% endif %}
+            {% for page in pages %}
+              <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <div id="contact-info">
+          <ul>
+            <li title="Facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li title="Pinterest"><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+            <li title="Twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li title="Instagram"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li title="Google Plus"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+            <li title="Youtube"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+            <li class="phone"><i class="fa fa-phone"></i> 678-678-6789</li>
+          </ul>
+        </div>
+      </div>
+      <div id="ombushop-footer">
+        <div class="footer-container">
+          <a href="#" target="_blank" title="OmbuShop. Tu tienda online" >Comienza a vender hoy con <strong>Ombushop</strong></a>
+        </div>
+      </div>
+    </footer>
 
     <!-- pinterest code -->
     <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>

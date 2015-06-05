@@ -101,9 +101,9 @@ File: show.liquid
 
       <div class="payment_images">
         <span>Envíos: A convenir</span><br>
-        <span>En hasta 18 cuotas con:</span>
         <div class="first_tier">
           {% assign gateway = shop.payment_gateways.first %}
+          <span>En hasta 18 cuotas con:</span>
           <img src="{{ gateway.payment_options_image }}">
         </div>
       </div> <!-- end .payment_images -->
