@@ -512,6 +512,7 @@ footer {
   max-width:960px;
   margin:auto;
   overflow: hidden;
+  padding: 0 2%;
 }
 .footer-container nav{
   max-width: 33%;
@@ -803,6 +804,9 @@ button.buy-button:active {
   #product-thumbnails li{
     float:left;
     margin-right:10px;
+  }
+  #contact-form #subject-input, #contact-form #email-input,#contact-form textarea{
+    width: 100%;
   }
   .payment_images{
     display:none;
