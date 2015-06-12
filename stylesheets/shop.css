@@ -211,9 +211,9 @@ header #header-content{
   color:#000;
 }
 #cart-bar {
-  position: fixed;
-  top: 0;
-  right: 20px;
+  position: absolute;
+  top: -40px;
+  right: 0px;
   z-index: 100;
 }
 #cart-bar a {
@@ -279,6 +279,9 @@ header #header-content{
   left: 0;
   z-index: 500;
   min-width: 160px;
+}
+#taxonomies ul.navigation-list > li > ul> li.current > a, #taxonomies ul.navigation-list > li > ul> li.root > ul > li.current> a{
+  color: #939393;
 }
 #taxonomies ul.navigation-list.opened > li > h5 {
   background: #fff;
@@ -348,11 +351,11 @@ li.root > a{
 
 div.breadcrumbs, .search-results-title {
   text-align: center;
-  margin: 2em 0;
   padding: 10px 0 0 0;
   height: 2.7em;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
 }
 .search-results-title .search-results-keywords {
   font-weight: 700;
@@ -369,12 +372,6 @@ div.breadcrumbs li {
 
 /* ========================================= */
 /* Product index */
-.no-products {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 100px 0;
-}
 .product-listing {
   margin: 0 0 0 180px;
   min-width: 780px;
@@ -653,6 +650,10 @@ body.template-page #content h2 {
 }
 body.template-page #content p {
   margin-bottom: 1em;
+  font-size: 14px;
+}
+body.template-page #content .page img{
+  max-width: 100%;
 }
 
 /* ========================================= */
@@ -735,6 +736,9 @@ button.buy-button:active {
 #cart-form .payment_images span {
   color: inherit;
 }
+#cart-form .payment_images .first_tier img{
+  display: block;
+}
 #cart-form .social-container {
   overflow: auto;
   margin-bottom: 20px;
@@ -778,8 +782,8 @@ button.buy-button:active {
 
 /* 801px - 1100px */
 @media screen and (max-width: 1100px) {
-  header #header-content{
-   margin: 0 20px;
+  header{
+   padding: 15px 20px 0 20px;
   }
   #content.index{
   max-width:768px;
@@ -904,6 +908,13 @@ button.buy-button:active {
 
 /* 600px and below */
 @media screen and (max-width: 600px) {
+  header #contact-info{
+    display:none;
+  }
+  #head_logo a{
+    text-align:center;
+    display: block;
+  }
   #main-image img {
     width: 100%;
   }
@@ -912,15 +923,5 @@ button.buy-button:active {
   }
   div.breadcrumbs, .search-results-title {
     margin: -15px 0 2em;
-  }
-}
-/* 400px and below */
-@media screen and (max-width: 400px) {
-  header #contact-info{
-    display:none;
-  }
-  #head_logo a{
-    text-align:center;
-    display: block;
   }
 }
