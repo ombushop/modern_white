@@ -202,59 +202,22 @@
               {% endif %}
             </p>
           </div><!-- end #cart-bar -->
-          <div id="sub-header">
-            <nav id="nav-container">
-              <ul id="navigation-bar">
-                {% for page in pages %}
-                <li {% if (page.url contains current_path and current_path != "/") or (current_path == "/" and page.is_homepage) %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
-                {% endfor %}
-                <li {% if (current_path == "/products") %}class="current-page"{% endif %}><a href="/products">Productos</a></li>
-              </ul>
-            </nav>
-          </div>
         </div>
-        </header>
+        <div id="sub-header">
+          <nav id="nav-container">
+            <ul id="navigation-bar">
+              {% for page in pages %}
+              <li {% if (page.url contains current_path and current_path != "/") or (current_path == "/" and page.is_homepage) %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+              {% endfor %}
+              <li {% if (current_path == "/products") %}class="current-page"{% endif %}><a href="/products">Productos</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
         {{ content_for_layout }}
 
-        <footer>
-          <div class="footer-container">
-            <div class="store_footer">
-              <div id="logo">
-                {% include 'logo' %}
-              </div>
-              <p>{{ shop.footer }}</p>
-            </div>
-            <nav>
-              <h1>Navegación</h1>
-              <ul>
-                {% if shop.homepage %}
-                  <li><a href="/products">Productos</a></li>
-                {% endif %}
-                {% for page in pages %}
-                <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
-                {% endfor %}
-              </ul>
-              </nav>
-              <div id="contact-info">
-                <ul>
-                  <li class="facebook" title="Facebook"><a href="#" target="_blank"></a></li>
-                  <li class="pinterest" title="Pinterest"><a href="#" target="_blank"></a></li>
-                  <li class="twitter" title="Twitter"><a href="#" target="_blank"></a></li>
-                  <li class="instagram" title="Instagram"><a href="#" target="_blank"></a></li>
-                  <li class="google-plus" title="Google Plus"><a href="#" target="_blank"></a></li>
-                  <li class="youtube" title="Youtube"><a href="#" target="_blank"></a></li>
-                  <li class="phone">678-678-6789</li>
-                </ul>
-              </div>
-          </div>
-          <div id="ombushop-footer">
-              <div class="footer-container">
-                <a href="#" target="_blank" title="OmbuShop. Tu tienda online" >Comienza a vender hoy con <strong>Ombushop</strong></a>
-              </div>
-          </div>
-        </footer>
-        <div class="push"></div>
+      <div class="push"></div>
       </div> <!-- end #page-container -->
       <footer>
         <div class="footer-container">
