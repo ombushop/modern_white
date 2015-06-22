@@ -26,20 +26,20 @@
       <script src="http://www.ombushop.com/assets/themes/modern_white/javascripts/html5shiv.js"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    
+
     <!-- Ombu Shop - Default CSS -->
     <link href='https://secure.ombushop.com/assets/shops/default.css' rel='stylesheet' type='text/css' />
 
-
     <!-- Ombu Shop - Theme: Modern White - File: theme.liquid -->
-
-    <!-- Google typography -->
+    <!-- Google typography and Fontawesome -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <link href='/themes/modern_white/stylesheets/reset.css' rel='stylesheet' type='text/css' />
     <link href='/themes/modern_white/stylesheets/basic.css' rel='stylesheet' type='text/css' />
     <link href='/themes/modern_white/stylesheets/buttons.css' rel='stylesheet' type='text/css' />
     <link href='/themes/modern_white/stylesheets/advice.css' rel='stylesheet' type='text/css' />
+    <link href='/themes/modern_white/stylesheets/contact.css' rel='stylesheet' type='text/css' />
 
     {{ 'shop.css' | asset_url | stylesheet_tag }}
     {{ 'products.css' | asset_url | stylesheet_tag }}
@@ -72,15 +72,15 @@
             isAnimated: true,
             isResizable: true,
             isFitWidth: true,
-            columnWidth: 270,
-            gutter: 20,
+            columnWidth: 250,
+            gutter: 15,
             itemSelector: '.product'
           });
 
         });
         // categories menu
-        $('#taxonomies ul.navigation-list > li > ul').hide();
-        var categories_opened = false;
+        $('#taxonomies ul.navigation-list > li > ul').show();
+        var categories_opened = true;
         $('#taxonomies > ul.navigation-list > li > h5').click(function(e){
           if(categories_opened == true){
             // close categories
@@ -142,8 +142,6 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- end facebook code -->
 
-    <div id="all">
-
       <!-- admin bar -->
       {% if current_user %}
         {% if current_user.is_admin? %}
@@ -172,7 +170,33 @@
       <div id="page-container">
 
         <header>
+          <div id="header-content">
           {% include 'logo' %}
+          <div id="search_bar">
+            <form accept-charset="UTF-8" action="/products" method="get">
+              <div style="margin:0;padding:0;display:inline">
+                <input name="utf8" type="hidden" value="✓" />
+              </div>
+              <label for="keywords">Buscar</label>
+              <input id="keywords" name="keywords" type="text" value="{{ keywords }}" />
+              <input type="submit" value="Buscar" id="search-button" />
+            </form>
+          </div>
+          <div id="contact-info">
+            <ul>
+              {% for social_network in social_networks %}
+                {% if social_network[0] != "phone" %}
+                  <li class="{{ social_network[0] }}"><a href="{{ social_network[1] }}" target="_blank"><i class="fa fa-{{ social_network[0] }}"></i></a></li>
+                {% endif %}
+              {% endfor %}
+
+              {% for social_network in social_networks %}
+                {% if social_network[0] == "phone" %}
+                  <li class="phone"><i class="fa fa-phone"></i> {{ social_network[1] }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
           <div id="cart-bar">
             <p class="cart-indicator">
               {% if current_order.item_count == 0 %}
@@ -182,48 +206,64 @@
               {% endif %}
             </p>
           </div><!-- end #cart-bar -->
-
-          <div id="sub-header">
-
-            <nav>
-              <ul id="navigation-bar">
-                {% if shop.homepage %}
-                  <li><a href="/products">Productos</a></li>
-                {% endif %}
-                {% for page in pages %}
-                <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
-                {% endfor %}
-              </ul>
-            </nav>
-
-            <div id="search_bar">
-              <form accept-charset="UTF-8" action="/products" method="get">
-                <div style="margin:0;padding:0;display:inline">
-                  <input name="utf8" type="hidden" value="✓" />
-                </div>
-                <label for="keywords">Buscar</label>
-                <input id="keywords" name="keywords" type="text" value="{{ keywords }}" />
-                <input type="submit" value="Buscar" id="search-button" />
-              </form>
-            </div>
-
-            {% include 'sidebar' %}
-
-          </div>
-
-        </header>
+        </div>
+        <div id="sub-header">
+          <nav id="nav-container">
+            <ul id="navigation-bar">
+              {% for page in pages %}
+              <li {% if (page.url contains current_path and current_path != "/") or (current_path == "/" and page.is_homepage) %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+              {% endfor %}
+              <li {% if (current_path == "/products") %}class="current-page"{% endif %}><a href="/products">Productos</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
         {{ content_for_layout }}
 
-        <footer>
-          <div class="store_footer">
-            {{ shop.footer }}
-          </div>
-          {{ content_for_footer }}
-        </footer>
-
+      <div class="push"></div>
       </div> <!-- end #page-container -->
-    </div> <!-- end #all -->
+      <footer>
+        <div class="footer-container">
+          <div class="store_footer">
+          <div id="logo">
+            {% include 'logo' %}
+          </div>
+          <p>{{ shop.footer }}</p>
+        </div>
+        <nav>
+          <h1>Navegación</h1>
+          <ul>
+            {% if shop.homepage %}
+              <li><a href="/products">Productos</a></li>
+            {% endif %}
+            {% for page in pages %}
+              <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <div id="contact-info">
+          <ul>
+              {% for social_network in social_networks %}
+                {% if social_network[0] != "phone" %}
+                  <li class="{{ social_network[0] }}"><a href="{{ social_network[1] }}" target="_blank"><i class="fa fa-{{ social_network[0] }}"></i></a></li>
+                {% endif %}
+              {% endfor %}
+
+              {% for social_network in social_networks %}
+                {% if social_network[0] == "phone" %}
+                  <li class="phone"><i class="fa fa-phone"></i> {{ social_network[1] }}</li>
+                {% endif %}
+              {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div id="ombushop-footer">
+        <div class="footer-container">
+          <a href="http://www.ombushop.com/tu-tienda-online?utm_source=shop&utm_medium={{shop.name}}" target="_blank" title="OmbuShop. Tu tienda online" >Comienza a vender hoy con <strong>OmbuShop</strong></a>
+        </div>
+      </div>
+    </footer>
 
     <!-- pinterest code -->
     <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
