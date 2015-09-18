@@ -264,8 +264,10 @@ header #header-content{
 
 /* Categories */
 #taxonomies {
-  position: absolute;
+  position: relative;
   z-index: 10000;
+  float: left;
+  max-width: 160px;
 }
 #taxonomies ul.navigation-list {
   background: #eee;
@@ -275,11 +277,11 @@ header #header-content{
   padding: 0 10px;
   font-size: 1.5em;
   line-height: 1.5em;
-  position: absolute;
   top: 70px;
   left: 0;
   z-index: 500;
   min-width: 160px;
+  margin-bottom: 30px;
 }
 #taxonomies ul.navigation-list > li > ul> li.current > a, #taxonomies ul.navigation-list > li > ul> li.root > ul > li.current> a{
   color: #939393;
@@ -813,7 +815,7 @@ button.buy-button:active {
   #contact-form #subject-input, #contact-form #email-input,#contact-form textarea{
     width: 100%;
   }
-  
+
   .product-content #main-image {
     float: none;
     margin-right: 0;
@@ -885,6 +887,8 @@ button.buy-button:active {
     border-top: #cfcfcf 1px solid;
     border-bottom: #cfcfcf 1px solid;
     margin: 1em 0;
+    float: none;
+    max-width: none;
   }
   #taxonomies > ul.navigation-list > li > h5{
     width:100%;
@@ -898,6 +902,7 @@ button.buy-button:active {
     top: 10px;
     left: 0;
     z-index: 50;
+    margin-bottom: 0;
   }
   .product-listing{
     min-width:initial;
