@@ -1,0 +1,6 @@
+{
+  "name": "Modern white",
+  "tagline": "Modern White Theme ",
+  "body": "# Theme Modern White\r\n\r\nTodos los templates del theme Modern White sobre la plataforma Ombu Shop.\r\n\r\nEstos templates utilizan la [API para diseñadores](http://www.ombushop.com/liquid-api/index.html)\r\n\r\n## Instalación\r\n\r\nPara poder utilizar estos templates es necesario tener una tienda virtual sobre Ombu Shop.\r\n\r\nPara utilizar este template:\r\n\r\n  1. Ir a http://www.ombushop.com/admin\r\n  2. Diseño > Configuración\r\n  3. Seleccionar 'Modern White'\r\n  4. Presionar 'Guardar'\r\n\r\n## Feedback\r\n\r\nPor cualquier consulta o problema con este theme, crear un issue o\r\nmandar un mail a hola@ombushop.com\r\n\r\nMuchas gracias!\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
