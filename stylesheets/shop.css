@@ -349,6 +349,13 @@ li.root > a{
   min-width: 160px;
 }
 
+.parent_category {
+  font-weight: 500 !important;
+}
+.children_list {
+  padding-left: 0.5em;
+}
+
 /* ========================================= */
 /* Breadcrumbs */
 
