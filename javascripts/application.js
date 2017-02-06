@@ -7,7 +7,7 @@ $(document).ready(function(){
   $("#product-variants select").change(function(e){
     checkSelected();
   });
-  
+
   $('ul.dropdown-menu').hide();
   $('li.dropdown-toggles').click(function(){
     $('ul.dropdown-menu').toggle();
@@ -49,7 +49,7 @@ function checkSelected() {
 
 function changePrice(price){
   if(price != undefined && price != "") {
-    $("span.price").html("$"+Math.floor(price));
+    $("span.price").html("$"+parseFloat(price).toFixed(2));
   }
 }
 
